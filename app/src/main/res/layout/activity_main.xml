@@ -14,13 +14,12 @@
         android:text="USERNAME"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/btnChangeUser"
-        app:layout_constraintBottom_toBottomOf="@id/btnChangeUser"/>
+        app:layout_constraintBottom_toBottomOf="@id/btnChangeUser" />
 
     <Button
         android:id="@+id/btnChangeUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:text="CHANGE USER"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +27,7 @@
     <ImageView
         android:id="@+id/ivAlbumCover"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +53,7 @@
         android:text="Lipps. inc"
         android:maxLines="1"
         android:ellipsize="end"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSongTitle" />
@@ -89,7 +88,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:src="@drawable/ic_play_arrow"
-        android:tint="#0"
+        android:tint="#FFFFFF"
         android:background="@drawable/rounded_grey_background"
         android:foreground="?selectableItemBackground"
         android:scaleType="fitCenter"
@@ -112,5 +111,14 @@
         app:layout_constraintTop_toBottomOf="@id/tvPlayCount"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <EditText
+        android:id="@+id/etChangeUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="ENTER USERNAME HERE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnChangeUser"
+        app:layout_constraintBottom_toBottomOf="@id/btnChangeUser"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

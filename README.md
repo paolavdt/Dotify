@@ -26,4 +26,4 @@ This app currently contains a single screen that displays basic user and song in
 respectively
 
 ## Image of App Running in Emulator
-![](hw1Running.png)
+![](hw1Running.png =200x)

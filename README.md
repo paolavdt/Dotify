@@ -21,3 +21,8 @@ This app currently contains a single screen that displays basic user and song in
 - Apply username: allows user to update new username in app display
 
 ## Extra Credit Attempted
+1. A user is not allowed to apply a new username if the edit text field is empty.
+4. All hardcoded dimensions & colors are extracted into res/values/dimens.xml & res/values/colors.xml
+respectively
+
+## Image of App Running in Emulator

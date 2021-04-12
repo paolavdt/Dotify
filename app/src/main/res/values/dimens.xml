@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <dimen name="screen_padding">16dp</dimen>
+    <dimen name="image_width">0dp</dimen>
+    <dimen name="album_cover_height">350dp</dimen>
+    <dimen name="margin_top_lg">20dp</dimen>
+    <dimen name="song_title_size">25sp</dimen>
+    <dimen name="media_control_w_h">70dp</dimen>
+
+</resources>

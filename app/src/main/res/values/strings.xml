@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Dotify</string>
+    <string name="username">Fnkytown4eva</string>
+    <string name="change_user">CHANGE USER</string>
+    <string name="song_title">Funkytown</string>
+    <string name="artist_name">Lipps Inc.</string>
+    <string name="enter_username_hint">enter username here</string>
 </resources>

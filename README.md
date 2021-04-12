@@ -26,4 +26,4 @@ This app currently contains a single screen that displays basic user and song in
 respectively
 
 ## Image of App Running in Emulator
-![](hw1Running.png)
+<image alt="Image of Dotify running on emulator" src"./hw1Running.png" height="500" />

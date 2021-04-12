@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
             // change text of 'change username' button to 'apply'
             btnChangeUser.text = "APPLY"
-        } else {
+        } else if (btnChangeUser.text == "APPLY" && etUsername.text.toString().trim() != ""){
             // show username text view with updated username
             tvUsername.text = etUsername.text.toString()
             tvUsername.visibility = View.VISIBLE

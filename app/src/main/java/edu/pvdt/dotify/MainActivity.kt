@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import edu.pvdt.dotify.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -15,19 +16,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // get all components by id
-        val btnSkipPrev = findViewById<ImageButton>(R.id.ibPrevTrack)
-        val btnSkipNext = findViewById<ImageButton>(R.id.ibNextTrack)
-        val btnPlay = findViewById<ImageButton>(R.id.ibPlay)
-        val btnChangeUser = findViewById<Button>(R.id.btnChangeUser)
-        playCount = findViewById<TextView>(R.id.tvPlayCount)
-        playCount.text = getString(R.string.play_count, randomNumber)
+        val binding = ActivityMainBinding.inflate(layoutInflater).apply{setContentView(root)}
 
-        // set listeners
-        btnSkipPrev.setOnClickListener{skipPrevClicked()}
-        btnSkipNext.setOnClickListener{skipNextClicked()}
-        btnPlay.setOnClickListener{playClicked()}
-        btnChangeUser.setOnClickListener{changeUserName(btnChangeUser)}
+        with(binding) {
+            // add listeners
+            ibPrevTrack.setOnClickListener{skipPrevClicked()}
+            ibNextTrack.setOnClickListener{skipNextClicked()}
+            ibPlay.setOnClickListener{playClicked(tvPlayCount)}
+            btnChangeUser.setOnClickListener{changeUserName(btnChangeUser, tvUsername, etChangeUserName)}
+
+            // update play count
+            tvPlayCount.text = getString(R.string.play_count, randomNumber)
+        }
     }
 
     private fun skipPrevClicked() {
@@ -38,17 +38,16 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Skipping to next track", Toast.LENGTH_SHORT).show()
     }
 
-    private fun playClicked() {
+    private fun playClicked(playCount: TextView) {
         randomNumber += 1
         playCount.text = getString(R.string.play_count, randomNumber)
     }
 
-    private fun changeUserName(btnChangeUser: Button) {
-        val tvUsername = findViewById<TextView>(R.id.tvUsername)
-        val etUsername = findViewById<EditText>(R.id.etChangeUserName)
+    private fun changeUserName(btnChangeUser: Button, tvUsername: TextView, etUsername: EditText) {
+//        val tvUsername = findViewById<TextView>(R.id.tvUsername)
+//        val etUsername = findViewById<EditText>(R.id.etChangeUserName)
 
         if (btnChangeUser.text.toString() == getString(R.string.change_user)) {
-            Log.i("mainActivity", btnChangeUser.text.toString())
             // hide username text view
             tvUsername.visibility = View.GONE
 

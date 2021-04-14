@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val btnPlay = findViewById<ImageButton>(R.id.ibPlay)
         val btnChangeUser = findViewById<Button>(R.id.btnChangeUser)
         playCount = findViewById<TextView>(R.id.tvPlayCount)
-        playCount.text = randomNumber.toString() + " plays"
+        playCount.text = getString(R.string.play_count, randomNumber)
 
         // set listeners
         btnSkipPrev.setOnClickListener{skipPrevClicked()}
@@ -40,14 +40,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun playClicked() {
         randomNumber += 1
-        Log.i("PlayClicked", randomNumber.toString())
-        playCount.text = randomNumber.toString() + " plays"
+        playCount.text = getString(R.string.play_count, randomNumber)
     }
 
     private fun changeUserName(btnChangeUser: Button) {
         val tvUsername = findViewById<TextView>(R.id.tvUsername)
         val etUsername = findViewById<EditText>(R.id.etChangeUserName)
-        if (btnChangeUser.text == "CHANGE USER") {
+
+        if (btnChangeUser.text.toString() == getString(R.string.change_user)) {
+            Log.i("mainActivity", btnChangeUser.text.toString())
             // hide username text view
             tvUsername.visibility = View.GONE
 
@@ -55,8 +56,8 @@ class MainActivity : AppCompatActivity() {
             etUsername.visibility = View.VISIBLE
 
             // change text of 'change username' button to 'apply'
-            btnChangeUser.text = "APPLY"
-        } else if (btnChangeUser.text == "APPLY" && etUsername.text.toString().trim() != ""){
+            btnChangeUser.text = getString(R.string.apply)
+        } else if (btnChangeUser.text == getString(R.string.apply) && etUsername.text.toString().trim() != ""){
             // show username text view with updated username
             tvUsername.text = etUsername.text.toString()
             tvUsername.visibility = View.VISIBLE
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             etUsername.visibility = View.GONE
 
             // change text of 'apply' button to 'change username'
-            btnChangeUser.text = "CHANGE USER"
+            btnChangeUser.text = getString(R.string.change_user)
         }
     }
 }

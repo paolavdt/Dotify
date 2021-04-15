@@ -12,7 +12,7 @@
         android:id="@+id/ivItemSongCover"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="10dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"

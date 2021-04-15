@@ -22,14 +22,12 @@
         <TextView
             android:id="@+id/tvItemSongTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FunkyTown"/>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/tvItemSongArtist"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lipps Inc."/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </LinearLayout>

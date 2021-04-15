@@ -2,6 +2,8 @@ package edu.pvdt.dotify
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import com.ericchee.songdataprovider.SongDataProvider
 import edu.pvdt.dotify.databinding.ActivitySongListBinding
 
@@ -20,7 +22,16 @@ class SongListActivity : AppCompatActivity() {
             val adapter = SongListAdapter(songs)
             rvSongs.adapter = adapter
 
-            // handle listeners here...
+            // Handle when clicking on song from list (update mini player)
+            adapter.onSongClickListener = { songTitle, songArtist ->
+                tvMiniPlayerInfo.text = songTitle + " - " + songArtist
+                clMiniPlayer.visibility = View.VISIBLE
+            }
+
+            // Handle shuffling songs
+            btnShuffle.setOnClickListener{
+                adapter.shuffleSongs(songs.toMutableList().shuffled())
+            }
         }
     }
 }

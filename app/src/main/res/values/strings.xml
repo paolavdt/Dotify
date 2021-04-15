@@ -7,4 +7,5 @@
     <string name="artist_name">Lipps Inc.</string>
     <string name="enter_username_hint">enter username here</string>
     <string name="play_count">%d plays</string>
+    <string name="mini_player">%s - %s</string>
 </resources>

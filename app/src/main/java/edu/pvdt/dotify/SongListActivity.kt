@@ -36,9 +36,6 @@ class SongListActivity : AppCompatActivity() {
             btnShuffle.setOnClickListener{
                 adapter.shuffleSongs(songs.toMutableList().shuffled())
             }
-
-            // Handle when clicking mini player (launch player activity)
-
         }
     }
 }

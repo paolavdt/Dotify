@@ -10,8 +10,15 @@ import com.ericchee.songdataprovider.Song
 import edu.pvdt.dotify.databinding.ActivityMainBinding
 import kotlin.random.Random
 
+private const val SONG_KEY = "curr_song"
+
 fun navigateToPlayerActivity(context: Context, song: Song) {
     val intent = Intent(context, MainActivity::class.java)
+    val bundle = Bundle().apply{
+        putParcelable(SONG_KEY, song)
+    }
+    intent.putExtras(bundle)
+
     context.startActivity(intent)
 }
 
@@ -21,10 +28,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        
+        val song: Song? = intent.getParcelableExtra<Song>(SONG_KEY)
 
         val binding = ActivityMainBinding.inflate(layoutInflater).apply{setContentView(root)}
 
         with(binding) {
+            // update player activity info with current song info
+            tvSongTitle.text = song?.title
+            tvArtistName.text = song?.artist
+            ivAlbumCover.setImageResource(song!!.largeImageID)
+
             // add listeners
             ibPrevTrack.setOnClickListener{skipPrevClicked()}
             ibNextTrack.setOnClickListener{skipNextClicked()}

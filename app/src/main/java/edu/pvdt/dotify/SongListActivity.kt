@@ -23,15 +23,22 @@ class SongListActivity : AppCompatActivity() {
             rvSongs.adapter = adapter
 
             // Handle when clicking on song from list (update mini player)
-            adapter.onSongClickListener = { songTitle, songArtist ->
-                tvMiniPlayerInfo.text = songTitle + " - " + songArtist
+//            adapter.onSongClickListener = { songTitle, songArtist ->
+            adapter.onSongClickListener = {song ->
+//                tvMiniPlayerInfo.text = songTitle + " - " + songArtist
+                tvMiniPlayerInfo.text = song.title + " - " + song.artist
                 clMiniPlayer.visibility = View.VISIBLE
+                clMiniPlayer.setOnClickListener{navigateToPlayerActivity(this@SongListActivity, song)}
+
             }
 
             // Handle shuffling songs
             btnShuffle.setOnClickListener{
                 adapter.shuffleSongs(songs.toMutableList().shuffled())
             }
+
+            // Handle when clicking mini player (launch player activity)
+
         }
     }
 }

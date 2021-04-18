@@ -1,11 +1,13 @@
 package edu.pvdt.dotify
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import com.ericchee.songdataprovider.Song
 import edu.pvdt.dotify.databinding.ActivityMainBinding
 import kotlin.random.Random
@@ -28,9 +30,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
+
+        // up button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // get current song object
         val song: Song? = intent.getParcelableExtra<Song>(SONG_KEY)
 
+        // add binding
         val binding = ActivityMainBinding.inflate(layoutInflater).apply{setContentView(root)}
 
         with(binding) {
@@ -43,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             ibPrevTrack.setOnClickListener{skipPrevClicked()}
             ibNextTrack.setOnClickListener{skipNextClicked()}
             ibPlay.setOnClickListener{playClicked(tvPlayCount)}
-            btnChangeUser.setOnClickListener{changeUserName(btnChangeUser, tvUsername, etChangeUserName)}
 
             // update play count
             tvPlayCount.text = getString(R.string.play_count, randomNumber)
@@ -63,30 +69,8 @@ class MainActivity : AppCompatActivity() {
         playCount.text = getString(R.string.play_count, randomNumber)
     }
 
-    private fun changeUserName(btnChangeUser: Button, tvUsername: TextView, etUsername: EditText) {
-//        val tvUsername = findViewById<TextView>(R.id.tvUsername)
-//        val etUsername = findViewById<EditText>(R.id.etChangeUserName)
-
-        if (btnChangeUser.text.toString() == getString(R.string.change_user)) {
-            // hide username text view
-            tvUsername.visibility = View.GONE
-
-            // show username edit text
-            etUsername.visibility = View.VISIBLE
-
-            // change text of 'change username' button to 'apply'
-            btnChangeUser.text = getString(R.string.apply)
-        } else if (btnChangeUser.text == getString(R.string.apply) && etUsername.text.toString().trim() != ""){
-            // show username text view with updated username
-            tvUsername.text = etUsername.text.toString()
-            tvUsername.visibility = View.VISIBLE
-
-            // hide username edit text & set to empty text value
-            etUsername.text.clear()
-            etUsername.visibility = View.GONE
-
-            // change text of 'apply' button to 'change username'
-            btnChangeUser.text = getString(R.string.change_user)
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }

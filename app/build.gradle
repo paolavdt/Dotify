@@ -48,4 +48,7 @@ dependencies {
 
     // SongDataProvider library
     implementation 'com.ericchee:songdataprovider:1.0.5'
+
+    // activity
+    implementation "androidx.fragment:fragment-ktx:1.3.2"
 }

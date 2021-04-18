@@ -7,23 +7,6 @@
     android:padding="@dimen/screen_padding"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnChangeUser"
-        app:layout_constraintBottom_toBottomOf="@id/btnChangeUser" />
-
-    <Button
-        android:id="@+id/btnChangeUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/change_user"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/ivAlbumCover"
         android:layout_width="@dimen/image_width"
@@ -31,7 +14,7 @@
         android:layout_marginTop="@dimen/margin_top_lg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChangeUser"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/funky_town_album_cover"
         app:layout_constraintDimensionRatio="1:1"/>
 
@@ -109,15 +92,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPlayCount"
         app:layout_constraintBottom_toBottomOf="parent" />
-
-    <EditText
-        android:id="@+id/etChangeUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_username_hint"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnChangeUser"
-        app:layout_constraintBottom_toBottomOf="@id/btnChangeUser"
-        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

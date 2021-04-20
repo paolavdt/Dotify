@@ -39,6 +39,6 @@ This app currently displays a list of songs -- containing title, artist, and alb
 - When a user presses shuffle, the list should animate the changes using DiffUtil
 
 ## Images of App Running in Emulator
-<image alt="Image of Dotify song list on emulator" src="./images/SongList.png" heigth="250" />
-<image alt="Image of Dotify mini player on emulator" src="./images/MiniPlayer.png" heigth="250" />   
-<image alt="Image of Dotify song player on emulator" src="./images/SongPlayer.png" heigth="250" />
+<image alt="Image of Dotify song list on emulator" src="./images/SongList.png" height="500" />
+<image alt="Image of Dotify mini player on emulator" src="./images/MiniPlayer.png" height="500" />   
+<image alt="Image of Dotify song player on emulator" src="./images/SongPlayer.png" height="500" />

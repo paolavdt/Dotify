@@ -23,10 +23,8 @@ class SongListActivity : AppCompatActivity() {
             rvSongs.adapter = adapter
 
             // Handle when clicking on song from list (update mini player)
-//            adapter.onSongClickListener = { songTitle, songArtist ->
             adapter.onSongClickListener = {song ->
-//                tvMiniPlayerInfo.text = songTitle + " - " + songArtist
-                tvMiniPlayerInfo.text = song.title + " - " + song.artist
+                tvMiniPlayerInfo.text = getString(R.string.mini_player, song.title, song.artist)
                 clMiniPlayer.visibility = View.VISIBLE
                 clMiniPlayer.setOnClickListener{navigateToPlayerActivity(this@SongListActivity, song)}
 

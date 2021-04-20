@@ -7,7 +7,6 @@ import com.ericchee.songdataprovider.Song
 import edu.pvdt.dotify.databinding.ItemSongBinding
 
 class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter<SongListAdapter.SongViewHolder>() {
-//    var onSongClickListener: (songTitle: String, songArtist: String) -> Unit = { _, _ ->  }
     var onSongClickListener: (song: Song) -> Unit = {_ -> }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
@@ -23,7 +22,6 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
             tvItemSongArtist.text = song.artist
 
             itemRoot.setOnClickListener{
-//                onSongClickListener(song.title, song.artist)
                 onSongClickListener(song)
             }
         }

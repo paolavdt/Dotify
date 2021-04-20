@@ -27,7 +27,6 @@ class SongListActivity : AppCompatActivity() {
                 tvMiniPlayerInfo.text = getString(R.string.mini_player, song.title, song.artist)
                 clMiniPlayer.visibility = View.VISIBLE
                 clMiniPlayer.setOnClickListener{navigateToPlayerActivity(this@SongListActivity, song)}
-
             }
 
             // Handle shuffling songs

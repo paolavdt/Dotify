@@ -2,6 +2,7 @@ package edu.pvdt.dotify
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ericchee.songdataprovider.Song
 import edu.pvdt.dotify.databinding.ItemSongBinding
@@ -30,9 +31,15 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
     override fun getItemCount(): Int = listOfSongs.size
 
     fun shuffleSongs(newListOfSongs: List<Song>) {
+//        notifyDataSetChanged()
+        val callback = SongDiffCallback(newListOfSongs, listOfSongs)
+        val result = DiffUtil.calculateDiff(callback)
+        result.dispatchUpdatesTo(this)
+
         this.listOfSongs = newListOfSongs
-        notifyDataSetChanged()
     }
+
+
 
     class SongViewHolder(val binding: ItemSongBinding): RecyclerView.ViewHolder(binding.root)
 }

@@ -1,11 +1,26 @@
-# Dotify HW1 - Layout & Events
+# Dotify HW2 - Activities & Recycler View
 Name: Paola Vanegas
 
 ## Description
-This app currently contains a single screen that displays basic user and song information, as well as including some media controls and the ability for a user to update thier username. 
+This app currently displays a list of songs -- containing title, artist, and album cover image for each song in the list. Songs are clickable, and when pressed will open a mini player which will show the current song's title and artist, along with a shuffle button. The list of songs can be shuffled if button is pressed. Additionally, when clicking on the mini player, a new screen representing the song player activity will be shown -- displaying basic song information and media controls. 
 
+### Song List
 **Shows**
-- Username
+- Song album cover
+- Song title 
+- Song artist name
+
+**Mini Player**
+- Song title 
+- Song artist name
+- Shuffle button
+
+**Mini Player Actions**
+- Mini player container: launch song player 
+- Shuffle button: shuffle list of songs
+
+### Song Player
+**Shows**
 - Song album cover
 - Song title 
 - Song artist name
@@ -16,14 +31,12 @@ This app currently contains a single screen that displays basic user and song in
 - Skip previous button: toast message 
 - Skip next button: toast message
 
-**Editing Functionality**
-- Change username: allows user to input a new username 
-- Apply username: allows user to update new username in app display
+**Back arrow**
+- Navigate back to song list
 
 ## Extra Credit Attempted
-- A user is not allowed to apply a new username if the edit text field is empty.
-- All hardcoded dimensions & colors are extracted into res/values/dimens.xml & res/values/colors.xml
-respectively
+- Stock Android back arrow button, ←, in the Header/Toolbar of Activity B (Song player)
+- When a user presses shuffle, the list should animate the changes using DiffUtil
 
 ## Image of App Running in Emulator
 <image alt="Image of Dotify running on emulator" src="./hw1Running.png" height="500" />

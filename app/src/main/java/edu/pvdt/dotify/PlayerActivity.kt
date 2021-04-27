@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import com.ericchee.songdataprovider.Song
-import edu.pvdt.dotify.databinding.ActivityMainBinding
+import edu.pvdt.dotify.databinding.ActivityPlayerBinding
 import kotlin.random.Random
 
 private const val SONG_KEY = "curr_song"
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.`activity_player.xml`)
+        setContentView(R.layout.activity_player)
 
         // up button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val song: Song? = intent.getParcelableExtra<Song>(SONG_KEY)
 
         // add binding
-        val binding = ActivityMainBinding.inflate(layoutInflater).apply{setContentView(root)}
+        val binding = ActivityPlayerBinding.inflate(layoutInflater).apply{setContentView(root)}
 
         with(binding) {
             // update player activity info with current song info

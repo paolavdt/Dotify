@@ -39,14 +39,20 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             // update player activity info with current song info
-            tvSongTitle.text = song?.title
-            tvArtistName.text = song?.artist
-            ivAlbumCover.setImageResource(song!!.largeImageID)
+            val song = song
+            if (song != null) {
+                ivAlbumCover.setImageResource(song.largeImageID)
+                tvSongTitle.text = song.title
+                tvArtistName.text = song.artist
+            }
 
             // add listeners
             ibPrevTrack.setOnClickListener{skipPrevClicked()}
             ibNextTrack.setOnClickListener{skipNextClicked()}
             ibPlay.setOnClickListener{playClicked(tvPlayCount)}
+            if (song != null) {
+                btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity, song)}
+            }
 
             // update play count
             tvPlayCount.text = getString(R.string.play_count, randomNumber)

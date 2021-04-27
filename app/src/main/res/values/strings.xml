@@ -5,9 +5,8 @@
     <string name="album_cover">song album cover</string>
     <string name="settings">settings</string>
     <string name="title_activity_settings">SettingsActivity</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
+    <string name="profile_image_desc">Uniqua twirling</string>
+    <string name="profile_username">Uniqua</string>
+    <string name="profile_desc">%s : %s</string>
+    <string name="statistics_times_played">%s has been played %d times</string>
 </resources>

@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             ibNextTrack.setOnClickListener{skipNextClicked()}
             ibPlay.setOnClickListener{playClicked(tvPlayCount)}
             if (song != null) {
-                btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity, song)}
+                btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity, song, randomNumber)}
             }
 
             // update play count

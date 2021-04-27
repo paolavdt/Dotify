@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/screen_padding"
+    tools:context=".StatisticsFragment">
+
+    <ImageView
+        android:id="@+id/ivStatsAlbumCover"
+        android:layout_width="@dimen/image_width"
+        android:layout_height="@dimen/profile_image_height"
+        android:paddingTop="@dimen/margin_top_lg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@string/album_cover" />
+
+    <TextView
+        android:id="@+id/tvStatsContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin_top_lg"
+        app:layout_constraintTop_toBottomOf="@id/ivStatsAlbumCover"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

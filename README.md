@@ -9,7 +9,7 @@ Dotify currently contains three main activities: a list of available songs, a so
 
 ## Images of App Running in Emulator
 <image alt="Image of Dotify player activity portrait on emulator" src="./images/player_act_port.png" height="500" />
-<image alt="Image of Dotify player acticity landscape on emulator" src="./images/player_act_land.png" height="500" />   
+<image alt="Image of Dotify player acticity landscape on emulator" src="./images/player_act_land.png" width="500" />   
 <image alt="Image of Dotify settings on emulator" src="./images/settings.png" height="500" />
 <image alt="Image of Dotify profile fragment on emulator" src="./images/profile.png" height="500" />
 <image alt="Image of Dotify about fragment on emulator" src="./images/about.png" height="500" />

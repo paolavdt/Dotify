@@ -31,7 +31,6 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
     override fun getItemCount(): Int = listOfSongs.size
 
     fun shuffleSongs(newListOfSongs: List<Song>) {
-//        notifyDataSetChanged()
         val callback = SongDiffCallback(newListOfSongs, listOfSongs)
         val result = DiffUtil.calculateDiff(callback)
         result.dispatchUpdatesTo(this)

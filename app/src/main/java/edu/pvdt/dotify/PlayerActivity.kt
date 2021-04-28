@@ -4,11 +4,14 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import android.widget.*
 import com.ericchee.songdataprovider.Song
 import edu.pvdt.dotify.databinding.ActivityPlayerBinding
 import kotlin.random.Random
 
+private const val COUNT_VALUE_KEY = "count_value"
 private const val SONG_KEY = "curr_song"
 
 fun navigateToPlayerActivity(context: Context, song: Song) {
@@ -27,6 +30,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
+
+        // check if there is a saved instance state
+        if (savedInstanceState != null) {
+            randomNumber = savedInstanceState.getInt(COUNT_VALUE_KEY, randomNumber)
+            Log.i("MainActivity", randomNumber.toString())
+        }
 
         // up button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -75,5 +84,10 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return super.onSupportNavigateUp()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(COUNT_VALUE_KEY, randomNumber)
+        super.onSaveInstanceState(outState)
     }
 }

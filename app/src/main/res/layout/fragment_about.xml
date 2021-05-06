@@ -28,8 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="School: University of Washington"
-        app:layout_constraintTop_toBottomOf="@id/tvVersion
-"
+        app:layout_constraintTop_toBottomOf="@id/tvVersion"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView

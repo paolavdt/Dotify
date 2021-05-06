@@ -4,12 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import android.widget.*
 import com.ericchee.songdataprovider.Song
 import edu.pvdt.dotify.databinding.ActivityPlayerBinding
-import kotlin.random.Random
 
 private const val COUNT_VALUE_KEY = "count_value"
 private const val SONG_KEY = "curr_song"
@@ -25,15 +22,15 @@ fun navigateToPlayerActivity(context: Context, song: Song) {
 }
 
 class MainActivity : AppCompatActivity() {
+    lateinit var dotifyApp: DotifyApplication
     private var songCount: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // add application context
-        val dotifyApp = this.applicationContext as DotifyApplication
+        dotifyApp = this.applicationContext as DotifyApplication
         songCount = dotifyApp.songCount
-
 
         // up button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -57,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             ibNextTrack.setOnClickListener{skipNextClicked()}
             ibPlay.setOnClickListener{playClicked(tvPlayCount)}
             if (song != null) {
-                btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity, song, songCount)}
+                btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity, song)}
             }
 
             // update play count
@@ -74,7 +71,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun playClicked(playCount: TextView) {
-        songCount += 1
+        dotifyApp.songCount += 1
+        songCount = dotifyApp.songCount
         playCount.text = getString(R.string.play_count, songCount)
     }
 

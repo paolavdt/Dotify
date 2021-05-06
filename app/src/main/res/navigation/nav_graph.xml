@@ -13,9 +13,6 @@
         <argument
             android:name="song"
             app:argType="com.ericchee.songdataprovider.Song" />
-        <argument
-            android:name="timesPlayed"
-            app:argType="integer" />
         <action
             android:id="@+id/action_settingsFragment_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
@@ -38,8 +35,5 @@
         <argument
             android:name="song"
             app:argType="com.ericchee.songdataprovider.Song" />
-        <argument
-            android:name="timesPlayed"
-            app:argType="integer" />
     </fragment>
 </navigation>

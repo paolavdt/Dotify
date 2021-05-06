@@ -22,7 +22,6 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val song: Song = safeArgs.song
-        val timesPlayed: Int = safeArgs.timesPlayed
 
         binding = FragmentSettingsBinding.inflate(layoutInflater)
         with(binding) {
@@ -32,8 +31,7 @@ class SettingsFragment : Fragment() {
             btnStatistics.setOnClickListener{
                 navController.navigate(
                     SettingsFragmentDirections.actionSettingsFragmentToStatisticsFragment(
-                        song = song,
-                        timesPlayed = timesPlayed
+                        song = song
                     )
                 )
             }

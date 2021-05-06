@@ -25,17 +25,15 @@ fun navigateToPlayerActivity(context: Context, song: Song) {
 }
 
 class MainActivity : AppCompatActivity() {
-    private var randomNumber = Random.nextInt(1000, 10000)
+    private var songCount: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_player)
 
-        // check if there is a saved instance state
-        if (savedInstanceState != null) {
-            randomNumber = savedInstanceState.getInt(COUNT_VALUE_KEY, randomNumber)
-            Log.i("MainActivity", randomNumber.toString())
-        }
+        // add application context
+        val dotifyApp = this.applicationContext as DotifyApplication
+        songCount = dotifyApp.songCount
+
 
         // up button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -45,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
         // add binding
         val binding = ActivityPlayerBinding.inflate(layoutInflater).apply{setContentView(root)}
-
         with(binding) {
             // update player activity info with current song info
             val song = song
@@ -60,11 +57,11 @@ class MainActivity : AppCompatActivity() {
             ibNextTrack.setOnClickListener{skipNextClicked()}
             ibPlay.setOnClickListener{playClicked(tvPlayCount)}
             if (song != null) {
-                btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity, song, randomNumber)}
+                btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity, song, songCount)}
             }
 
             // update play count
-            tvPlayCount.text = getString(R.string.play_count, randomNumber)
+            tvPlayCount.text = getString(R.string.play_count, songCount)
         }
     }
 
@@ -77,17 +74,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun playClicked(playCount: TextView) {
-        randomNumber += 1
-        playCount.text = getString(R.string.play_count, randomNumber)
+        songCount += 1
+        playCount.text = getString(R.string.play_count, songCount)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return super.onSupportNavigateUp()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt(COUNT_VALUE_KEY, randomNumber)
-        super.onSaveInstanceState(outState)
     }
 }

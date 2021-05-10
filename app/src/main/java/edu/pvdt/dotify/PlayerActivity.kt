@@ -66,10 +66,11 @@ class MainActivity : AppCompatActivity() {
         if (dotifyApp.currSongPosition > 0) {
             lifecycleScope.launch{
                 val songList = dataRepository.getSongs().songs
-                dotifyApp.currSong = songList[dotifyApp.currSongPosition++]
+                dotifyApp.currSongPosition -= 1
+                dotifyApp.currSong = songList[dotifyApp.currSongPosition]
                 startActivity(getIntent());
                 finish();
-                Toast.makeText(MainActivity(), "Skipping to next track ${dotifyApp.currSongPosition}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(MainActivity(), "Skipping to next track ${dotifyApp.currSongPosition}", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -78,10 +79,11 @@ class MainActivity : AppCompatActivity() {
         if (dotifyApp.currSongPosition < 47) {
             lifecycleScope.launch{
                 val songList = dataRepository.getSongs().songs
-                dotifyApp.currSong = songList[dotifyApp.currSongPosition++]
+                dotifyApp.currSongPosition += 1
+                dotifyApp.currSong = songList[dotifyApp.currSongPosition]
                 startActivity(getIntent());
                 finish();
-                Toast.makeText(MainActivity(), "Skipping to next track ${dotifyApp.currSongPosition}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(MainActivity(), "Skipping to next track ${dotifyApp.currSongPosition}", Toast.LENGTH_SHORT).show()
             }
         }
     }

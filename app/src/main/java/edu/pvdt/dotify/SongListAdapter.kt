@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ericchee.songdataprovider.Song
+import coil.load
 import edu.pvdt.dotify.databinding.ItemSongBinding
+import edu.pvdt.dotify.model.Song
 
 class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter<SongListAdapter.SongViewHolder>() {
-    var onSongClickListener: (song: Song) -> Unit = {_ -> }
+    var onSongClickListener: (song: Song) -> Unit = { _ -> }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
         val binding = ItemSongBinding.inflate(LayoutInflater.from(parent.context))
@@ -16,9 +17,9 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
-        val song = listOfSongs[position]
+        val song: Song = listOfSongs[position]
         with(holder.binding) {
-            ivItemSongCover.setImageResource(song.smallImageID)
+            ivItemSongCover.load(song.smallImageURL)
             tvItemSongTitle.text = song.title
             tvItemSongArtist.text = song.artist
 

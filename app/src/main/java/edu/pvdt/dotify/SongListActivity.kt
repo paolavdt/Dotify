@@ -3,13 +3,17 @@ package edu.pvdt.dotify
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.ericchee.songdataprovider.Song
-import com.ericchee.songdataprovider.SongDataProvider
+import androidx.lifecycle.lifecycleScope
 import edu.pvdt.dotify.databinding.ActivitySongListBinding
+import edu.pvdt.dotify.model.Song
+import edu.pvdt.dotify.model.Songs
+import edu.pvdt.dotify.repository.DataRepository
+import kotlinx.coroutines.launch
 
 private const val SELECTED_SONG_KEY = "selected_song"
 
@@ -17,36 +21,33 @@ class SongListActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySongListBinding
     private lateinit var selectedSong: Song
 
+    private val dotifyApp: DotifyApplication by lazy { application as DotifyApplication}
+    private val dataRepository: DataRepository by lazy { dotifyApp.dataRepository }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         title = "All Songs"
         binding = ActivitySongListBinding.inflate(layoutInflater).apply{setContentView(root)}
 
         with(binding) {
-            val songs = SongDataProvider.getAllSongs()
+            lifecycleScope.launch{
+                val songListObject: Songs = dataRepository.getSongs()
+                val songList = songListObject.songs
 
-            val adapter = SongListAdapter(songs)
-            rvSongs.adapter = adapter
+                val adapter = SongListAdapter(songList)
+                rvSongs.adapter = adapter
 
-            // Open mini player if selected song is not null (saved in instance state)
-            if (savedInstanceState != null) {
-                if (savedInstanceState.getParcelable<Song>(SELECTED_SONG_KEY) != null) {
-                    var selectedSong = savedInstanceState.getParcelable<Song>(SELECTED_SONG_KEY)
-                    if (selectedSong != null) {
-                        updateMiniPlayer(selectedSong, tvMiniPlayerInfo, clMiniPlayer)
-                    }
+                // Handle when clicking on song from list (update mini player)
+                adapter.onSongClickListener = {song ->
+                    selectedSong = song
+                    dotifyApp.currSongPosition = songList.indexOf(selectedSong)
+                    updateMiniPlayer(song, tvMiniPlayerInfo, clMiniPlayer)
                 }
-            }
 
-            // Handle when clicking on song from list (update mini player)
-            adapter.onSongClickListener = {song ->
-                selectedSong = song
-                updateMiniPlayer(song, tvMiniPlayerInfo, clMiniPlayer)
-            }
-
-            // Handle shuffling songs
-            btnShuffle.setOnClickListener{
-                adapter.shuffleSongs(songs.toMutableList().shuffled())
+                // Handle shuffling songs
+                btnShuffle.setOnClickListener{
+                    adapter.shuffleSongs(songList.toMutableList().shuffled())
+                }
             }
         }
     }
@@ -54,11 +55,7 @@ class SongListActivity : AppCompatActivity() {
     private fun updateMiniPlayer(song: Song, mpInfo: TextView, mp: ConstraintLayout) {
         mpInfo.text = getString(R.string.mini_player, song.title, song.artist)
         mp.visibility = View.VISIBLE
-        mp.setOnClickListener{navigateToPlayerActivity(this@SongListActivity, song)}
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putParcelable(SELECTED_SONG_KEY, selectedSong)
-        super.onSaveInstanceState(outState)
+        dotifyApp.currSong = song
+        mp.setOnClickListener{navigateToPlayerActivity(this@SongListActivity)}
     }
 }

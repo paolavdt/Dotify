@@ -1,5 +1,6 @@
 package edu.pvdt.dotify
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,7 +19,6 @@ class SongListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_song_list)
         title = "All Songs"
         binding = ActivitySongListBinding.inflate(layoutInflater).apply{setContentView(root)}
 
@@ -48,6 +48,9 @@ class SongListActivity : AppCompatActivity() {
             btnShuffle.setOnClickListener{
                 adapter.shuffleSongs(songs.toMutableList().shuffled())
             }
+
+            // Handle when clicking on artists button
+            btnArtists.setOnClickListener{navigateToArtistsActivity(this@SongListActivity)}
         }
     }
 

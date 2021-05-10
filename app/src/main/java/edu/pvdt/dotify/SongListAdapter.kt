@@ -38,7 +38,5 @@ class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter
         this.listOfSongs = newListOfSongs
     }
 
-
-
     class SongViewHolder(val binding: ItemSongBinding): RecyclerView.ViewHolder(binding.root)
 }

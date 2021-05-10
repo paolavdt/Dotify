@@ -17,7 +17,6 @@ fun navigateToPlayerActivity(context: Context, song: Song) {
         putParcelable(SONG_KEY, song)
     }
     intent.putExtras(bundle)
-
     context.startActivity(intent)
 }
 

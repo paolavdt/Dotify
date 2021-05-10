@@ -5,19 +5,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-//https://raw.githubusercontent.com/echeeUW/codesnippets/master/allartists.json
-
 class DataRepository {
-    private val artistService = Retrofit.Builder()
+    private val userService = Retrofit.Builder()
         .baseUrl("https://raw.githubusercontent.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(ArtistService::class.java)
+        .create(UserService::class.java)
 
-    suspend fun getArtists() = artistService.getArtists()
+    suspend fun getUser() = userService.getUser()
 }
 
-interface ArtistService{
-    @GET("echeeUW/codesnippets/master/allartists.json")
-    suspend fun getArtists(): User
+interface UserService{
+    @GET("echeeUW/codesnippets/master/user_info.json")
+    suspend fun getUser(): User
 }

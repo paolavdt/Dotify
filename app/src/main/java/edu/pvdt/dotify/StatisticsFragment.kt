@@ -26,7 +26,6 @@ class StatisticsFragment : Fragment() {
         val binding = FragmentStatisticsBinding.inflate(layoutInflater)
         with(binding) {
             val song = safeArgs.song
-//            val timesPlayed = safeArgs.timesPlayed
             val songCount = dotifyApp.songCount
 
             ivStatsAlbumCover.setImageResource(song.largeImageID)

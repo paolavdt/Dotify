@@ -6,6 +6,7 @@
     <string name="settings">settings</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="statistics_times_played">%s has been played %d times</string>
+    <string name="profile_name">%s %s</string>
 
     <!-- user profile -->
     <string name="profile_image_desc">User image description</string>

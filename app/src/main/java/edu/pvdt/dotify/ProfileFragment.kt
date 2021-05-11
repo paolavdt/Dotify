@@ -39,9 +39,9 @@ class ProfileFragment : Fragment() {
                     val user = dataRepository.getUser()
                     ivProfileImage.load(user.profilePicURL)
                     tvProfileUsername.text = user.username
-                    tvFirstName.text = getString(R.string.profile_desc, "First Name", user.firstName)
-                    tvLastName.text = getString(R.string.profile_desc, "Last Name", user.lastName)
-                    tvHasNose.text = getString(R.string.profile_desc, "Has Nose", user.hasNose.toString())
+                    tvName.text = getString(R.string.profile_name, user.firstName, user.lastName)
+                    tvNose.text = user.hasNose.toString()
+                    tvPlatform.text = user.platform.toString()
                     tvError.visibility = View.GONE
                 } catch (exception: Exception) {
                     tvError.visibility = View.VISIBLE

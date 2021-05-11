@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#DEDEDE</color>
     <color name="light_sea_green">#20B2AA</color>
+    <color name="purple_scheme">#AD80FB</color>
 </resources>

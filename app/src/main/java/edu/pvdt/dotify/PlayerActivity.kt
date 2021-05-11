@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
 //            if (song != null) {
 //                btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity, song)}
 //            }
+            btnSettings.setOnClickListener{ navigateToSettingsActivity(this@MainActivity)}
 
             // update play count
             tvPlayCount.text = getString(R.string.play_count, songCount)
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 dotifyApp.currSong = songList[dotifyApp.currSongPosition]
                 startActivity(getIntent());
                 finish();
-//                Toast.makeText(MainActivity(), "Skipping to next track ${dotifyApp.currSongPosition}", Toast.LENGTH_SHORT).show()
+                overridePendingTransition(0, 0);
             }
         }
     }
@@ -83,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                 dotifyApp.currSong = songList[dotifyApp.currSongPosition]
                 startActivity(getIntent());
                 finish();
-//                Toast.makeText(MainActivity(), "Skipping to next track ${dotifyApp.currSongPosition}", Toast.LENGTH_SHORT).show()
+                overridePendingTransition(0, 0);
             }
         }
     }

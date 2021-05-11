@@ -5,13 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/screen_padding"
+    android:background="@drawable/grad_pg_background"
     tools:context=".StatisticsFragment">
 
     <ImageView
         android:id="@+id/ivStatsAlbumCover"
         android:layout_width="@dimen/image_width"
-        android:layout_height="@dimen/profile_image_height"
-        android:paddingTop="@dimen/margin_top_lg"
+        android:layout_height="@dimen/album_cover_height"
+        android:layout_marginTop="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,8 +24,81 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/margin_top_lg"
+        android:text="Song has been played 5 times"
         app:layout_constraintTop_toBottomOf="@id/ivStatsAlbumCover"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTimeContainer"
+        android:layout_width="350dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintTop_toBottomOf="@id/tvStatsContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        android:elevation="10dp">
+
+        <ImageView
+            android:id="@+id/ivLine"
+            android:layout_width="2dp"
+            android:layout_height="200dp"
+            android:background="@color/light_gray"
+            app:layout_constraintTop_toTopOf="@id/clTimeContainer"
+            app:layout_constraintBottom_toBottomOf="@id/clTimeContainer"
+            app:layout_constraintStart_toStartOf="@id/clTimeContainer"
+            app:layout_constraintEnd_toEndOf="@id/clTimeContainer"/>
+
+        <TextView
+            android:id="@+id/tvSongDurationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Song Duration"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="@id/clTimeContainer"
+            app:layout_constraintStart_toStartOf="@id/clTimeContainer"
+            app:layout_constraintEnd_toStartOf="@id/ivLine" />
+
+        <TextView
+            android:id="@+id/tvSongDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1970ms"
+            android:textSize="@dimen/song_title_size"
+            android:textColor="@color/purple_scheme"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/tvTotalTimeTitle"
+            app:layout_constraintBottom_toBottomOf="@id/clTimeContainer"
+            app:layout_constraintStart_toStartOf="@id/clTimeContainer"
+            app:layout_constraintEnd_toStartOf="@id/ivLine" />
+
+        <TextView
+            android:id="@+id/tvTotalTimeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Listening\nTime"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="@id/clTimeContainer"
+            app:layout_constraintStart_toStartOf="@id/ivLine"
+            app:layout_constraintEnd_toEndOf="@id/clTimeContainer" />
+
+        <TextView
+            android:id="@+id/tvTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1970ms"
+            android:textSize="@dimen/song_title_size"
+            android:textColor="@color/purple_scheme"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/tvTotalTimeTitle"
+            app:layout_constraintBottom_toBottomOf="@id/clTimeContainer"
+            app:layout_constraintStart_toStartOf="@id/ivLine"
+            app:layout_constraintEnd_toEndOf="@id/clTimeContainer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

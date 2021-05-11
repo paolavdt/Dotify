@@ -2,13 +2,14 @@
 <resources>
     <dimen name="screen_padding">16dp</dimen>
     <dimen name="image_width">0dp</dimen>
-    <dimen name="album_cover_height">350dp</dimen>
+    <dimen name="album_cover_height">325dp</dimen>
     <dimen name="album_cover_height_land">200dp</dimen>
     <dimen name="margin_top_lg">20dp</dimen>
     <dimen name="song_title_size">25sp</dimen>
     <dimen name="media_control_w_h">70dp</dimen>
     <dimen name="media_control_sm">50dp</dimen>
-    <dimen name="profile_image_height">300dp</dimen>
+    <dimen name="profile_image_height">115dp</dimen>
+    <dimen name="profile_username">20sp</dimen>
     <dimen name="margin_top_sm">10dp</dimen>
     <!--
     Because the window insets on round devices are larger than 15dp, this padding only applies

@@ -11,12 +11,8 @@ import edu.pvdt.dotify.databinding.ActivitySettingsBinding
 private const val SONG_KEY = "song"
 private const val PLAYED_KEY = "timesPlayed"
 
-fun navigateToSettingsActivity(context: Context, song: Song) {
+fun navigateToSettingsActivity(context: Context) {
     val intent = Intent(context, SettingsActivity::class.java)
-    val bundle = Bundle().apply{
-        putParcelable(SONG_KEY, song)
-    }
-    intent.putExtras(bundle)
     context.startActivity(intent)
 }
 

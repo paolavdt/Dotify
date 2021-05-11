@@ -21,20 +21,12 @@ class SettingsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val song: Song = safeArgs.song
-
         binding = FragmentSettingsBinding.inflate(layoutInflater)
         with(binding) {
             // add listeners
             btnProfile.setOnClickListener{navController.navigate(R.id.profileFragment)}
             btnAbout.setOnClickListener{navController.navigate(R.id.aboutFragment)}
-            btnStatistics.setOnClickListener{
-                navController.navigate(
-                    SettingsFragmentDirections.actionSettingsFragmentToStatisticsFragment(
-                        song = song
-                    )
-                )
-            }
+            btnStatistics.setOnClickListener{ navController.navigate(R.id.statisticsFragment)}
         }
         return binding.root
     }

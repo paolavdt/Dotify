@@ -7,6 +7,16 @@
     tools:context=".SongListActivity"
     android:padding="16dp" >
 
+    <TextView
+        android:id="@+id/tvErrorSongList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="There was an error fetching song list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSongs"
         android:layout_width="0dp"

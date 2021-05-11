@@ -9,11 +9,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
+import coil.load
 import edu.pvdt.dotify.databinding.ActivitySongListBinding
 import edu.pvdt.dotify.model.Song
 import edu.pvdt.dotify.model.Songs
 import edu.pvdt.dotify.repository.DataRepository
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 private const val SELECTED_SONG_KEY = "selected_song"
 
@@ -31,22 +33,27 @@ class SongListActivity : AppCompatActivity() {
 
         with(binding) {
             lifecycleScope.launch{
-                val songListObject: Songs = dataRepository.getSongs()
-                val songList = songListObject.songs
+                try {
+                    val songListObject: Songs = dataRepository.getSongs()
+                    val songList = songListObject.songs
 
-                val adapter = SongListAdapter(songList)
-                rvSongs.adapter = adapter
+                    val adapter = SongListAdapter(songList)
+                    rvSongs.adapter = adapter
 
-                // Handle when clicking on song from list (update mini player)
-                adapter.onSongClickListener = {song ->
-                    selectedSong = song
-                    dotifyApp.currSongPosition = songList.indexOf(selectedSong)
-                    updateMiniPlayer(song, tvMiniPlayerInfo, clMiniPlayer)
-                }
+                    // Handle when clicking on song from list (update mini player)
+                    adapter.onSongClickListener = {song ->
+                        selectedSong = song
+                        dotifyApp.currSongPosition = songList.indexOf(selectedSong)
+                        updateMiniPlayer(song, tvMiniPlayerInfo, clMiniPlayer)
+                    }
 
-                // Handle shuffling songs
-                btnShuffle.setOnClickListener{
-                    adapter.shuffleSongs(songList.toMutableList().shuffled())
+                    // Handle shuffling songs
+                    btnShuffle.setOnClickListener{
+                        adapter.shuffleSongs(songList.toMutableList().shuffled())
+                    }
+                } catch (exception: Exception) {
+                    tvErrorSongList.visibility = View.VISIBLE
+                    Toast.makeText(SongListActivity(), exception.toString(), Toast.LENGTH_LONG).show()
                 }
             }
         }

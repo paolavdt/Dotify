@@ -51,9 +51,12 @@ class SongListActivity : AppCompatActivity() {
                     btnShuffle.setOnClickListener{
                         adapter.shuffleSongs(songList.toMutableList().shuffled())
                     }
+
+                    // make exception invisible
+                    tvErrorSongList.visibility = View.GONE
                 } catch (exception: Exception) {
                     tvErrorSongList.visibility = View.VISIBLE
-                    Toast.makeText(SongListActivity(), exception.toString(), Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@SongListActivity, exception.toString(), Toast.LENGTH_LONG).show()
                 }
             }
         }

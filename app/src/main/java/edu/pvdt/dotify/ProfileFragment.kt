@@ -42,9 +42,11 @@ class ProfileFragment : Fragment() {
                     tvName.text = getString(R.string.profile_name, user.firstName, user.lastName)
                     tvNose.text = user.hasNose.toString()
                     tvPlatform.text = user.platform.toString()
+                    tvProfileAge.visibility = View.VISIBLE
                     tvError.visibility = View.GONE
                 } catch (exception: Exception) {
                     tvError.visibility = View.VISIBLE
+                    tvProfileAge.visibility = View.GONE
                     Toast.makeText(activity, exception.toString(), Toast.LENGTH_LONG).show()
                 }
             }

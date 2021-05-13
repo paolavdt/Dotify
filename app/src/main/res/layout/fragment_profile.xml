@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/clProfileNameContainer"
         android:visibility="invisible" />
 
     <ImageView
@@ -24,7 +24,6 @@
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/profile_image_height"
         android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_profile"
         app:layout_constraintDimensionRatio="1:1"
         android:contentDescription="@string/profile_image_desc"
         app:layout_constraintStart_toStartOf="parent"

@@ -31,4 +31,12 @@
         app:layout_constraintTop_toBottomOf="@id/btnAbout"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/scRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnStatistics"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Auto Refresh" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

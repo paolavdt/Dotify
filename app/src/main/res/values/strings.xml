@@ -11,4 +11,10 @@
     <!-- user profile -->
     <string name="profile_image_desc">User image description</string>
     <string name="profile_desc">%s : %s</string>
+    
+    <!-- notifications -->
+    <string name="new_music">New Uploaded Music</string>
+    <string name="new_music_channel_description">This is a channel that notifies users when new music has been uploaded</string>
+    <string name="notif_title">%s just released a new song!!!</string>
+    <string name="notif_text">Listen to %s now on Dotify</string>
 </resources>

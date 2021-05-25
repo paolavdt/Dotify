@@ -14,6 +14,7 @@ import edu.pvdt.dotify.databinding.ActivityPlayerBinding
 import edu.pvdt.dotify.repository.DataRepository
 import kotlinx.coroutines.launch
 
+const val SONG_INFO_KEY = "SONG_INFO_KEY"
 
 fun navigateToPlayerActivity(context: Context) {
     val intent = Intent(context, MainActivity::class.java)

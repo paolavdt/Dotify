@@ -18,9 +18,12 @@ class FetchSongsWorker(
     private val songNotificationManager by lazy { dotifyApplication.notificationManager }
 
     override suspend fun doWork(): Result {
-        dataRepository.getSongs()
-        songNotificationManager.publishMusicNotification()
-
-        return Result.success()
+        return try {
+            dataRepository.getSongs()
+            songNotificationManager.publishMusicNotification()
+            Result.success()
+        } catch(ex: Exception) {
+            Result.failure()
+        }
     }
 }

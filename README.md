@@ -14,4 +14,4 @@ Dotify currently contains three main activities: a list of available songs, a so
 <image alt="Image of Dotify profile on emulator" src="./images/profile.png" height="500" />
 <image alt="Image of Dotify profile on emulator with bad http request" src="./images/bad_http_profile.png" height="500" />
 <image alt="Image of Dotify statistics on emulator" src="./images/statistics.png" height="500" />
-<image alt="Image of Dotify auto refresh on emultor" src="./images/auto_refresh.png" height="500" />
+<image alt="Image of Dotify auto refresh on emultor" src="./images/auto-refresh.png" height="500" />
